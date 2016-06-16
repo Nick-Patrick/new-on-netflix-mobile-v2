@@ -1,0 +1,47 @@
+.list {
+  background: #F9F9F9;
+  margin-bottom: -7px;
+}
+
+ion-list + ion-list {
+  margin-top: 24px;
+}
+
+.titleList {
+  padding: 0 8px;
+}
+
+.loading {
+  margin-top: 60% !important;
+  padding: 15px 20px !important;
+}
+
+.item-divider {
+  background-color: #EDF0F3;
+  text-align: center;
+  font-weight: 500;
+  padding-top: 5px;
+  font-size: 1em;
+  height: 20px;
+  font-family: Bangers, cursive;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #BF2E34;
+  border: 0;
+  margin-bottom: -7px;
+}
+
+.toolbar-background {
+  background: color($colors, dark);
+  color: #fff;
+}
+
+.toolbar-content {
+  .toolbar-title {
+    color: #fff;
+    font-family: 'Bangers', cursive;
+    letter-spacing: 1px;
+  }
+}
+
+

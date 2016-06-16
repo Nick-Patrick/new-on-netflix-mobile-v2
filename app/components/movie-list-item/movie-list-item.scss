@@ -1,0 +1,102 @@
+.item {
+  padding: 0;
+}
+
+ion-item-sliding {
+  width: 100%;
+}
+
+.item-thumbnail-left {
+  max-height: 130px;
+  border: 0;
+  box-shadow: 0 3px 10px #D4D4D4;
+  min-height: 130px;
+  position: relative;
+
+  ion-avatar {
+    border-radius:0;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    img {
+      border-radius: 0;
+    }
+  }
+
+  h2 {
+    font-size: 1.1em;
+    font-weight: 400;
+    color: #636363;
+
+    span.season {
+      font-size: .7em;
+    }
+  }
+
+  .year {
+    color: #868686;
+  }
+
+  .runtime {
+    font-size: 0.8em;
+    color: #614F4F;
+    line-height: 1.5em;
+  }
+
+  .genre {
+    color: #B97477;
+  }
+
+  img.thumbnail-no-padding {
+    top: 0;
+    left: 0;
+    max-height: 100%;
+    max-width: 100px;
+  }
+
+  .ratings {
+    position: absolute;
+    bottom: 0;
+    font-size: 1em;
+
+    li {
+      float: left;
+      padding-right: 9px;
+
+      p {
+        float: right;
+        padding-left: 6px;
+        line-height: 25px;
+        font-size: .78em;
+      }
+    }
+
+    img {
+      height: 25px;
+      width: auto;
+
+      &.metacritic {
+        padding-top: 4px;
+        height: 20px;
+      }
+    }
+  }
+
+  .remindMe {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: #806C6D;
+    padding-right: 8px;
+
+    &.selected {
+      color: #BE272D;
+    }
+  }
+}
+
+.positiveToast {
+  .button-inner {
+    color: color($colors, favorite);
+  }
+}

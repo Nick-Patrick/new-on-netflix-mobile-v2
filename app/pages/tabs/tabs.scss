@@ -1,0 +1,29 @@
+.tabs {
+  tabbar {
+    background: color($colors, dark);
+    color: white;
+    box-shadow: 0 0 1px #9C0101;
+
+    .tab-button {
+      color: white;
+      font-weight: 600;
+    }
+
+    .tab-button[aria-selected=true] {
+      color: #fff;
+    }
+  }
+
+  tab-highlight {
+    background: #fff;
+  }
+}
+
+h1 {
+  font-family: 'Bangers', cursive;
+  letter-spacing: 1px;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+}
