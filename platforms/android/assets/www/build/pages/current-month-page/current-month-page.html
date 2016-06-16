@@ -1,0 +1,19 @@
+<ion-navbar *navbar text-center class="bar bar-header bar-dark">
+  <ion-title class="title">
+    New on Netflix
+  </ion-title>
+</ion-navbar>
+
+<ion-content>
+  <ion-list class="list" *ngFor="let day of monthTitles.days">
+    <div *ngIf="day" id="day{{ day.day }}">
+      <ion-item class="item item-divider">
+        {{ currentDate.month }} <span style="font-size: 1.2em;">{{ day.day }}</span>
+      </ion-item>
+
+      <ul class="titleList" *ngFor="let title of day.titles">
+        <MovieListItem [day]="day" [title]="title"></MovieListItem>
+      </ul>
+    </div>
+  </ion-list>
+</ion-content>

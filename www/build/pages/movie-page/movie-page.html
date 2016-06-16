@@ -1,0 +1,68 @@
+<ion-navbar dark *navbar>
+  <ion-title text-center>{{movie.Title}}</ion-title>
+</ion-navbar>
+
+<ion-content padding>
+
+  <ion-card class="description">
+
+    <ion-card-content class="title" *ngIf="movie.Title.length > 3">
+      <h2>{{ movie.Title }} <span *ngIf="movie.season">Season {{movie.season}}</span></h2>
+      <h3>On Netflix: {{ movie.day }} {{ movie.month | uppercase}}</h3>
+      <ion-avatar *ngIf="movie.Poster.length > 5">
+        <img class="poster" src="{{movie.Poster}}">
+      </ion-avatar>
+    </ion-card-content>
+
+
+    <ion-card-content class="title" *ngIf="movie.Genre.length > 5">
+      <p dark>{{ movie.Genre }}</p>
+    </ion-card-content>
+
+    <ion-card-content class="title" *ngIf="movie.Plot.length > 5">
+      <h3>Plot</h3>
+      <p>{{ movie.Plot }}</p>
+    </ion-card-content>
+
+    <ion-card-content class="title" *ngIf="movie.Released.length > 4">
+      <h3>Released</h3>
+      <p><span *ngIf="movie.season">Season {{movie.season}} - </span>{{ movie.Released }}</p>
+    </ion-card-content>
+
+    <ion-card-content class="title" *ngIf="movie.Director.length > 4">
+      <h3>Director</h3>
+      <p>{{ movie.Director }}</p>
+    </ion-card-content>
+
+    <ion-card-content class="title" *ngIf="movie.Actors.length > 4">
+      <h3>Actors</h3>
+      <p>{{ movie.Actors }}</p>
+    </ion-card-content>
+
+
+    <ion-card-content class="title" *ngIf="movie.Awards.length > 4">
+      <h3>Awards</h3>
+      <p>{{ movie.Awards }}</p>
+    </ion-card-content>
+
+
+    <ion-item *ngIf="movie.imdbRating" item-left>
+      <ion-icon name="star" item-left large primary></ion-icon>
+      <h2>{{ movie.imdbRating }} / 10</h2>
+      <p>IMDB</p>
+    </ion-item>
+
+    <ion-item *ngIf="movie.Metascore.length > 1 && movie.Metascore !== 'N/A'">
+      <ion-icon name="heart" item-left large favorite></ion-icon>
+      <h2>{{ movie.Metascore }} / 100</h2>
+      <p>Metascore</p>
+    </ion-item>
+
+  </ion-card>
+
+  <button (click)="setReminder(movie)" favorite fab fab-right fab-top>
+    <ion-icon name="stopwatch"></ion-icon>
+  </button>
+
+      <!--<button ng-click="addReminder(title, this)" class="button button-large icon ion-clock">Set Reminder</button>-->
+</ion-content>
