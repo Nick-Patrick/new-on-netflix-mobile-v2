@@ -1,7 +1,7 @@
 import {Component} from '@angular/core'
 import {PreviousMonthPage} from '../previous-month-page/previous-month-page';
 import {CurrentMonthPage} from '../current-month-page/current-month-page';
-import {ContactPage} from '../contact-page/contact-page';
+import {NextMonthPage} from '../next-month-page/next-month-page';
 
 @Component({
   templateUrl: 'build/pages/tabs/tabs.html'
@@ -17,6 +17,6 @@ export class TabsPage {
     // should be each tab's root Page
     this.tab1Root = PreviousMonthPage;
     this.tab2Root = CurrentMonthPage;
-    this.tab3Root = ContactPage;
+    this.tab3Root = NextMonthPage;
   }
 }
