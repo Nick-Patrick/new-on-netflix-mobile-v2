@@ -18,12 +18,12 @@ export class MyApp {
       interstitial: 'ca-app-pub-3981028455625793/9728779310'
     };
 
-    this.initFirebase();
-    this.authFirebase();
-
     platform.ready().then(() => {
       StatusBar.styleDefault();
+      this.initFirebase();
+      this.authFirebase();
       this.initAdmob();
+      this.initGA();
     });
   }
 
@@ -51,6 +51,10 @@ export class MyApp {
         autoShow: true
       });
     }
+  }
+
+  initGA() {
+    window.analytics.startTrackerWithId("UA-56321517-2");
   }
 }
 

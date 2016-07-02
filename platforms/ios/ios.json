@@ -43,6 +43,10 @@
                         {
                             "xml": "<feature name=\"AdMob\"><param name=\"ios-package\" value=\"CDVAdMobPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"UniversalAnalytics\"><param name=\"ios-package\" value=\"UniversalAnalyticsPlugin\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -89,6 +93,9 @@
         },
         "cordova-plugin-admobpro": {
             "PACKAGE_NAME": "com.ionicframework.newonnetflixv2ts963514"
+        },
+        "cordova-plugin-google-analytics": {
+            "PACKAGE_NAME": "com.ionicframework.newonnetflix490142"
         }
     },
     "dependent_plugins": {},
@@ -176,6 +183,14 @@
             "clobbers": [
                 "window.AdMob"
             ]
+        },
+        {
+            "file": "plugins/cordova-plugin-google-analytics/www/analytics.js",
+            "id": "cordova-plugin-google-analytics.UniversalAnalytics",
+            "pluginId": "cordova-plugin-google-analytics",
+            "clobbers": [
+                "analytics"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -188,6 +203,7 @@
         "cordova-plugin-app-event": "1.2.0",
         "de.appplant.cordova.plugin.local-notification": "0.8.4",
         "cordova-plugin-extension": "1.5.1",
-        "cordova-plugin-admobpro": "2.18.0"
+        "cordova-plugin-admobpro": "2.18.0",
+        "cordova-plugin-google-analytics": "0.8.1"
     }
 }

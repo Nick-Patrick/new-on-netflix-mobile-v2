@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController} from 'ionic-angular';
+import {Platform, NavController} from 'ionic-angular';
 import {MoviePage} from '../../pages/movie-page/movie-page';
 import {Toast} from "../../../node_modules/ionic-angular/components/toast/toast";
 import {DateHelper} from "../../services/DateHelper";
@@ -13,6 +13,7 @@ import {LocalNotifications} from 'ionic-native';
 })
 export class MovieListItem {
   constructor(private _navController: NavController,
+              private platform: Platform,
               private dateHelper: DateHelper
   ) {
   }
@@ -32,6 +33,13 @@ export class MovieListItem {
 
     this.presentToast(movie, "- Reminder set.");
     this.addNotification(movie, titleReleaseDate);
+    this.trackEvent("Notifications", "Added", movie.Title);
+  }
+
+  trackEvent(category, action, data) {
+    this.platform.ready().then(() => {
+      window.analytics.trackEvent(category, action, data);
+    });
   }
 
   addNotification(movie, titleReleaseDate) {

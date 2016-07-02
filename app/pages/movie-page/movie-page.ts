@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController, NavParams} from 'ionic-angular';
+import {Platform, NavController, NavParams} from 'ionic-angular';
 import {DateHelper} from "../../services/DateHelper";
 import {Toast} from "../../../node_modules/ionic-angular/components/toast/toast";
 import {LocalNotifications} from 'ionic-native';
@@ -15,10 +15,13 @@ export class MoviePage {
 
 
   constructor(private _navController: NavController,
+              private platform: Platform,
               private _navParams: NavParams,
               private dateHelper: DateHelper) {
     this.movie = this._navParams.data.movie;
     this.day = this._navParams.data.day;
+
+    window.analytics.trackView("Movie " + this.movie.Title);
   }
 
   goBack() {
@@ -36,6 +39,7 @@ export class MoviePage {
 
     this.presentToast(movie, "- Reminder set.");
     this.addNotification(movie, titleReleaseDate);
+    this.trackEvent("Notifications", "Added", movie.Title);
   }
 
   addNotification(movie, titleReleaseDate) {
@@ -46,6 +50,12 @@ export class MoviePage {
       at: titleReleaseDate,
       led: "FF0000",
       sound: null
+    });
+  }
+
+  trackEvent(category, action, data) {
+    this.platform.ready().then(() => {
+      window.analytics.trackEvent(category, action, data);
     });
   }
 

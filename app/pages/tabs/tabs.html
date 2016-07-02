@@ -1,6 +1,6 @@
 
-<ion-tabs class="tabs">
-  <ion-tab class="tab-item" [root]="tab1Root" tabTitle="May"></ion-tab>
-  <ion-tab class="tab-item" [root]="tab2Root" tabTitle="Jun 2016"></ion-tab>
-  <ion-tab class="tab-item" [root]="tab3Root" tabTitle="July"></ion-tab>
+<ion-tabs class="tabs" selectedIndex="1">
+  <ion-tab class="tab-item" [root]="tab1Root" tappable tabTitle="{{previousMonth.month}}"></ion-tab>
+  <ion-tab class="tab-item" [root]="tab2Root" tappable tabTitle="{{currentMonth.month}}"></ion-tab>
+  <ion-tab class="tab-item" [root]="tab3Root" tappable tabTitle="{{nextMonth.month}}"></ion-tab>
 </ion-tabs>

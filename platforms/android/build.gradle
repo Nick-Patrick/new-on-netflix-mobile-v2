@@ -243,6 +243,7 @@ dependencies {
     releaseCompile project(path: "CordovaLib", configuration: "release")
     compile "com.android.support:support-v4:+"
     compile "com.google.android.gms:play-services-ads:+"
+    compile "com.google.android.gms:play-services-analytics:+"
     // SUB-PROJECT DEPENDENCIES END
 }
 
