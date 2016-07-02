@@ -1,24 +1,11 @@
-<li *ngIf="title.Title" class="item item-thumbnail-left">
-  <ion-item-sliding>
-    <ion-item tappable (click)="selectMovie(title, day)">
-      <ion-thumbnail item-left>
-       <img class="thumbnail-no-padding" [src]="title.Poster.length > 5 ? title.Poster : 'img/no-image.png'" class="thumbnail-no-padding"/>
-      </ion-thumbnail>
-
-      <h2>
-        {{ title.Title }}
-        <span class="season" *ngIf="title.season">S{{ title.season }}</span>
-      </h2>
-      <p class="year">{{ title.Year }}</p>
-      <p class="runtime">{{ title.Runtime }}</p>
-      <p class="genre">{{ title.Genre }}</p>
-
-    </ion-item>
-    <ion-item-options>
-      <button favorite (click)="setReminder(title)">
-        <ion-icon name="clock"></ion-icon>
-        Remind
-      </button>
-    </ion-item-options>
-  </ion-item-sliding>
+<li *ngIf="title.Title">
+      <h5 class="movieTitle" style="padding:0px;" id="{{ title.Title }}">
+        {{ title.Title }} ({{ title.Year }})
+      </h5>
+  <div class="eachMovie" style="line-height:0.9em;">
+  <div *ngIf="title.season" class="season"><p style="font-size:0.8em;"><b>Season:</b> {{ title.season }}</p></div>
+  <div *ngIf="title.Genre.length > 5" class="genre"><p style="font-size:0.8em;"><b>Genre:</b> {{ title.Genre }}</p></div>
+  <div *ngIf="title.Actors.length > 5" class="cast"><p style="font-size:0.8em;"><b>Cast:</b> {{ title.Actors }}</p></div>
+  <div *ngIf="title.Director.length > 5" class="director"><p style="font-size:0.8em;"><b>Director:</b> {{ title.Director }}</p></div>
+  </div>
 </li>

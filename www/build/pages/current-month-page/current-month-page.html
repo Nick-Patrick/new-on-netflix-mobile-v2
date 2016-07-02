@@ -7,9 +7,8 @@
 <ion-content>
   <ion-list class="list" *ngFor="let day of monthTitles.days">
     <div *ngIf="day" id="day{{ day.day }}">
-      <ion-item class="item item-divider">
-        {{ currentDate.month }} <span style="font-size: 1.2em;">{{ day.day }}</span>
-      </ion-item>
+      <h3>{{ day.day }} {{ currentDate.month }}</h3>
+
 
       <ul class="titleList" *ngFor="let title of day.titles">
         <MovieListItem [day]="day" [title]="title"></MovieListItem>

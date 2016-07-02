@@ -21,7 +21,6 @@ export class CurrentMonthPage {
     private dateHelper: DateHelper,
     private navController: NavController
   ){
-    navigator.splashscreen.hide();
 
     this.presentLoading();
     this.localStorage = this.localStorage || new Storage(LocalStorage);
