@@ -3,7 +3,7 @@ import {NetflixDataService} from "../../services/NetflixData";
 import {DateHelper} from "../../services/DateHelper";
 import * as _ from 'lodash';
 import {MovieListItem} from "../../components/movie-list-item/movie-list-item";
-import {NavController, Storage, LocalStorage} from 'ionic-angular';
+import {Platform, NavController, Storage, LocalStorage} from 'ionic-angular';
 import {Loading} from "../../../node_modules/ionic-angular/components/loading/loading";
 
 @Component({
@@ -17,6 +17,7 @@ export class CurrentMonthPage {
   private currentDate: any;
 
   constructor(
+    private platform: Platform,
     private netflixData: NetflixDataService,
     private dateHelper: DateHelper,
     private navController: NavController
@@ -37,6 +38,14 @@ export class CurrentMonthPage {
         day.titles = _.values(day.titles);
       });
       this.loading.dismiss();
+    });
+
+    this.trackView("Current Month");
+  }
+
+  trackView(viewText) {
+    this.platform.ready().then(() => {
+      window.analytics.trackView(viewText);
     });
   }
 

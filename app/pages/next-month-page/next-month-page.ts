@@ -3,7 +3,7 @@ import {NetflixDataService} from '../../services/NetflixData';
 import {DateHelper} from '../../services/DateHelper';
 import * as _ from 'lodash';
 import {MovieListItem} from "../../components/movie-list-item/movie-list-item";
-import {NavController, Storage, LocalStorage} from 'ionic-angular';
+import {Platform, NavController, Storage, LocalStorage} from 'ionic-angular';
 import {Loading} from "../../../node_modules/ionic-angular/components/loading/loading";
 import {LocalStorage} from "../../../node_modules/ionic-angular/platform/storage/local-storage";
 
@@ -19,6 +19,7 @@ export class NextMonthPage {
 
   constructor(
     private netflixData: NetflixDataService,
+    private platform: Platform,
     private dateHelper: DateHelper,
     private navController: NavController
   ) {
@@ -37,6 +38,8 @@ export class NextMonthPage {
       });
       this.loading.dismiss();
     });
+
+    this.trackView("Next Month");
   }
 
   checkAndSetLocalStorage() {
@@ -44,6 +47,12 @@ export class NextMonthPage {
       this.monthTitles = this.localStorage.get('nextMonthTitles');
       this.loading.dismiss();
     }
+  }
+
+  trackView(viewText) {
+    this.platform.ready().then(() => {
+      window.analytics.trackView(viewText);
+    });
   }
 
   presentLoading() {

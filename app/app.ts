@@ -23,6 +23,7 @@ export class MyApp {
       this.initFirebase();
       this.authFirebase();
       this.initAdmob();
+      this.initGA();
     });
   }
 
@@ -50,6 +51,10 @@ export class MyApp {
         autoShow: true
       });
     }
+  }
+
+  initGA() {
+    window.analytics.startTrackerWithId("UA-56321517-2");
   }
 }
 
