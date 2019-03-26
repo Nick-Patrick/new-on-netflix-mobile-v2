@@ -28,13 +28,6 @@ export class MyApp {
   }
 
   initFirebase() {
-    const fbConf = {
-      apiKey: 'AIzaSyAA4BsLduX1c0wnXN_N7RWXrIQD24VoMVA',
-      authDomain: 'netflixtitles.firebaseapp.com',
-      databaseURL: 'https://netflixtitles.firebaseio.com',
-      storageBucket: 'netflixtitles.appspot.com'
-    };
-
     firebase.initializeApp(fbConf);
   }
 
